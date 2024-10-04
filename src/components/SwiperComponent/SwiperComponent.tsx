@@ -15,6 +15,7 @@ export default function SwiperComponent() {
       className={styles.root}
       spaceBetween={"20"}
       slidesPerView={"auto"}
+      loop={true}
     >
       <SwiperSlide>
         <p>2015</p>
