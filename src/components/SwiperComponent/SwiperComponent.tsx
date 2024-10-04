@@ -6,8 +6,17 @@ import "swiper/scss/pagination";
 
 // import required modules
 import { Pagination } from "swiper/modules";
+import { useContext, useMemo } from "react";
+import { DataContext } from "../../context";
+import { INITIAL_INTERVALS } from "../../fixtures/fixtures";
 
 export default function SwiperComponent() {
+  const { current } = useContext(DataContext);
+  const { data } = useMemo(() => {
+    console.log("current", current);
+    return INITIAL_INTERVALS[current];
+  }, [INITIAL_INTERVALS, current]);
+
   return (
     <Swiper
       pagination={true}
@@ -17,48 +26,12 @@ export default function SwiperComponent() {
       slidesPerView={"auto"}
       loop={true}
     >
-      <SwiperSlide>
-        <p>2015</p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-          facere nihil eaque repudiandae nulla numquam.
-        </p>
-      </SwiperSlide>
-      <SwiperSlide>
-        <p>2016</p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-          facere nihil eaque repudiandae nulla numquam.
-        </p>
-      </SwiperSlide>
-      <SwiperSlide>
-        <p>2017</p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-          facere nihil eaque repudiandae nulla numquam.
-        </p>
-      </SwiperSlide>
-      <SwiperSlide>
-        <p>2018</p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-          facere nihil eaque repudiandae nulla numquam.
-        </p>
-      </SwiperSlide>
-      <SwiperSlide>
-        <p>2019</p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-          facere nihil eaque repudiandae nulla numquam.
-        </p>
-      </SwiperSlide>
-      <SwiperSlide>
-        <p>2020</p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-          facere nihil eaque repudiandae nulla numquam.
-        </p>
-      </SwiperSlide>
+      {data?.map((data, i) => (
+        <SwiperSlide key={i}>
+          <p>{data.year}</p>
+          <p>{data.text}</p>
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 }

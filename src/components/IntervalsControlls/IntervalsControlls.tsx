@@ -1,11 +1,41 @@
+import { useCallback, useContext } from "react";
 import styles from "./style.module.scss";
 import classNames from "classnames";
+import { DataContext } from "../../context";
+import { INITIAL_INTERVALS } from "../../fixtures/fixtures";
 
 export default function IntervalsControlls() {
+  const { current, setCurrent } = useContext(DataContext);
+  const totalCount = INITIAL_INTERVALS.length ?? 0;
+  console.log("totalCount", totalCount);
+
+  const nextInterval = useCallback(
+    (prev: number) => {
+      if (prev >= totalCount - 1) setCurrent(0);
+      else setCurrent(prev + 1);
+    },
+    [totalCount, setCurrent]
+  );
+
+  const prevInterval = useCallback(
+    (prev: number) => {
+      if (prev <= 0) setCurrent(totalCount - 1);
+      else setCurrent(prev - 1);
+    },
+    [totalCount, setCurrent]
+  );
+
   return (
     <div className={styles.controlls}>
-      <div className={styles.controlls__title}>06/06</div>
-      <button className={styles.controlls__button}>
+      <div className={styles.controlls__title}>
+        {current < 10 ?? 0}
+        {current + 1}/{totalCount < 10 ?? 0}
+        {totalCount}
+      </div>
+      <button
+        className={styles.controlls__button}
+        onClick={() => prevInterval(current)}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 25 25"
@@ -25,6 +55,7 @@ export default function IntervalsControlls() {
           styles.controlls__button,
           styles.controlls__button_inactive
         )}
+        onClick={() => nextInterval(current)}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
