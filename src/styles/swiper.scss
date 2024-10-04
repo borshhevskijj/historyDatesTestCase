@@ -1,0 +1,38 @@
+.swiper-slide {
+  opacity: 0.4;
+  width: clamp(166px, 60cqi, 300px);
+
+  & p:first-child {
+    font-family: Bebas Neue, "Franklin Gothic Medium", "Arial Narrow", Arial,
+      sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.2px;
+    text-align: left;
+
+    color: $clr-blue-text1;
+  }
+  & p:last-child {
+    font-family: PT Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20.3px;
+    text-align: left;
+
+    color: $clr-gray-text1;
+  }
+
+  &-active {
+    opacity: 1;
+  }
+}
+
+.swiper-pagination-bullet {
+  width: clamp(6px, 2vw, 12px) !important;
+  height: clamp(6px, 2vw, 12px) !important;
+  background-color: $clr-gray2-40 !important;
+
+  &-active {
+    background-color: $clr-gray2 !important;
+  }
+}

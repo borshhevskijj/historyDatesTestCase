@@ -1,0 +1,44 @@
+.controlls {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  align-items: flex-start;
+
+  &__title {
+    font-family: PT Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18.12px;
+    text-align: left;
+
+    color: $clr-gray-text1;
+
+    grid-area: span 1 / span 2;
+    padding-bottom: 15px;
+  }
+
+  &__button {
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background-color: $clr-main-bg;
+
+    border: 1px solid $clr-gray2;
+    color: $clr-gray2;
+
+    &_inactive {
+      border-color: $clr-gray2-50;
+      color: $clr-gray2-50;
+    }
+
+    & svg {
+      scale: 80%;
+      transform: translateY(2px);
+    }
+  }
+}
