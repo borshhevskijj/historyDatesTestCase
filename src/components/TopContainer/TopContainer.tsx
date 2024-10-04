@@ -8,8 +8,8 @@ export default function TopContainer() {
         даты
       </div>
       <div className={styles.dates}>
-        <span className={styles.leftDate}>1998</span>{" "}
-        <span className={styles.rightDate}>2007</span>
+        <span className={styles.leftDate}>2015</span>{" "}
+        <span className={styles.rightDate}>2022</span>
       </div>
     </div>
   );
