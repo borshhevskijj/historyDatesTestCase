@@ -1,0 +1,15 @@
+.root {
+  display: grid;
+  grid-template-rows: 1fr 1px 1fr;
+  min-height: 100vh;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.top,
+.bottom {
+  //   background-color: rgb(166, 62, 123);
+}
+.line {
+  border: 1px solid $clr-gray1;
+}
