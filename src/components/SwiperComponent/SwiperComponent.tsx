@@ -1,10 +1,8 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "./style.module.scss";
-// Import Swiper styles
 import "swiper/scss";
 import "swiper/scss/pagination";
 
-// import required modules
 import { Pagination } from "swiper/modules";
 import { useContext, useMemo } from "react";
 import { DataContext } from "../../context";
@@ -12,10 +10,10 @@ import { INITIAL_INTERVALS } from "../../fixtures/fixtures";
 
 export default function SwiperComponent() {
   const { current } = useContext(DataContext);
-  const { data } = useMemo(() => {
-    console.log("current", current);
-    return INITIAL_INTERVALS[current];
-  }, [INITIAL_INTERVALS, current]);
+  const { data } = useMemo(
+    () => INITIAL_INTERVALS[current],
+    [INITIAL_INTERVALS, current]
+  );
 
   return (
     <Swiper
