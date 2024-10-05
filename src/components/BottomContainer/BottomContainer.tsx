@@ -5,8 +5,10 @@ import styles from "./style.module.scss";
 export default function BottomContainer() {
   return (
     <div className={styles.root}>
-      <SwiperComponent />
       <IntervalsControlls />
+      <div className={styles.wrapper}>
+        <SwiperComponent />
+      </div>
     </div>
   );
 }

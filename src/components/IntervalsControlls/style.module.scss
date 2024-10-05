@@ -27,6 +27,7 @@
     border-radius: 50%;
     width: 25px;
     height: 25px;
+
     background-color: $clr-main-bg;
 
     border: 1px solid $clr-gray2;
@@ -41,5 +42,14 @@
       scale: 80%;
       transform: translateY(2px);
     }
+    @media ($bp-1) {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  @media ($bp-1) {
+    position: relative;
+    gap: 15px;
   }
 }

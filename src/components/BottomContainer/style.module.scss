@@ -5,4 +5,13 @@
   height: 100%;
 
   position: relative;
+
+  @media ($bp-1) {
+    overflow: hidden;
+  }
+}
+
+.wrapper {
+  position: relative;
+  height: 100%;
 }

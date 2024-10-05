@@ -3,6 +3,9 @@
   height: 100%;
 
   position: absolute !important;
-  left: 0;
   top: 0;
+
+  @media ($bp-1) {
+    top: 20px;
+  }
 }
