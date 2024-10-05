@@ -8,6 +8,8 @@ import { useContext, useMemo } from "react";
 import { DataContext } from "../../context";
 import { INITIAL_INTERVALS } from "../../fixtures/fixtures";
 
+const getIsPagination = () => window.screen.width < 768;
+
 export default function SwiperComponent() {
   const { current } = useContext(DataContext);
   const { data } = useMemo(
@@ -17,7 +19,7 @@ export default function SwiperComponent() {
 
   return (
     <Swiper
-      pagination={true}
+      pagination={getIsPagination()}
       modules={[Pagination]}
       className={styles.root}
       spaceBetween={"20"}

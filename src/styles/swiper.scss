@@ -36,3 +36,9 @@
     background-color: $clr-gray2 !important;
   }
 }
+
+.swiper-pagination {
+  @media ($bp-1) {
+    display: none;
+  }
+}

@@ -1,0 +1,31 @@
+.root {
+  display: none;
+
+  @media ($bp-1) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    background-color: $clr-main-bg;
+
+    & div {
+      border: 1px solid $clr-gray1;
+    }
+
+    & div:first-child {
+      border-right: 0;
+      border-bottom: 0;
+    }
+    & div:nth-child(2) {
+      border-bottom: 0;
+    }
+    & div:nth-child(3) {
+      border-right: 0;
+    }
+    z-index: -1;
+  }
+}

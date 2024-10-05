@@ -1,15 +1,25 @@
 .root {
+  position: relative;
+
+  margin: 0 auto;
+
   display: grid;
-  grid-template-rows: 1fr 1px 1fr;
+  grid-template-rows: 0.5fr 0.5fr 1px 1fr;
   min-height: 568px;
   padding: 10px 20px;
   overflow-x: hidden;
+
+  max-width: 1440px;
+
+  @media ($bp-1) {
+    grid-template-rows: 1fr 1fr 1fr;
+    padding: 0 80px;
+  }
 }
 
-// .top,
-// .bottom {
-//   //   background-color: rgb(166, 62, 123);
-// }
 .line {
   border: 1px solid $clr-gray1;
+  @media ($bp-1) {
+    display: none;
+  }
 }
