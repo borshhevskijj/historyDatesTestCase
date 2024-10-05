@@ -4,7 +4,7 @@ import "swiper/scss";
 import "swiper/scss/pagination";
 import arrow from "../../assets/arrow.svg";
 
-import { Pagination, Navigation, Controller } from "swiper/modules";
+import { Pagination, Navigation } from "swiper/modules";
 // import required modules
 import { useContext, useMemo, useState } from "react";
 import { DataContext } from "../../context";
