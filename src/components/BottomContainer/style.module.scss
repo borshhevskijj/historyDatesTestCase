@@ -5,9 +5,10 @@
   height: 100%;
 
   position: relative;
+  background-color: transparent;
 
   @media ($bp-1) {
-    overflow: hidden;
+    gap: 20px;
   }
 }
 

@@ -9,6 +9,8 @@
   justify-items: center;
   align-items: center;
 
+  z-index: 2;
+
   @media ($bp-1) {
     font-family: PT Sans;
     font-size: clamp(28px, 56px, 56px);
@@ -43,6 +45,7 @@
   font-weight: 700;
   font-size: clamp(56px, 17.5vw, 112px);
   letter-spacing: -0.02em;
+  z-index: 2;
 
   & span:first-child {
     color: $clr-blue-text1;

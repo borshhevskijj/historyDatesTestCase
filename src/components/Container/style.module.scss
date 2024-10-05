@@ -1,4 +1,5 @@
 .root {
+  background-color: $clr-main-bg;
   position: relative;
 
   margin: 0 auto;
@@ -7,9 +8,9 @@
   grid-template-rows: 0.5fr 0.5fr 1px 1fr;
   min-height: 568px;
   padding: 10px 20px;
-  overflow-x: hidden;
 
   max-width: 1440px;
+  z-index: 0;
 
   @media ($bp-1) {
     grid-template-rows: 1.5fr 1fr 1.5fr;
@@ -18,7 +19,7 @@
 }
 
 .line {
-  border: 1px solid $clr-gray1;
+  border: 1px solid $clr-gray2;
   @media ($bp-1) {
     display: none;
   }

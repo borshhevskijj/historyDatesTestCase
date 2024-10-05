@@ -1,14 +1,10 @@
-interface IInterval {
-  start: number;
-  end: number;
-  data: TData[];
-}
+import { DataSchema, IntervalSchema } from "./zod";
 
-interface TData {
-  year: number;
-  text: string;
-}
+export type TData = z.infer<typeof DataSchema>;
+export type TInterval = z.infer<typeof IntervalSchema>;
 
-interface Window {
-  INITIAL_INTERVALS: IInterval[];
+declare global {
+  interface Window {
+    INITIAL_INTERVALS: TInterval[];
+  }
 }

@@ -1,8 +1,20 @@
+.swiper {
+  position: relative;
+}
+
 .swiper-slide {
   opacity: 0.4;
   width: clamp(166px, 60cqi, 300px);
+
+  padding-right: 20px;
+
   @media ($bp-1) {
-    width: clamp(166px, 33cqi, 600px);
+    opacity: 1;
+    padding-right: 100px;
+  }
+
+  @media ($bp-1) {
+    width: clamp(166px, calc(33.33cqi - 100px), 600px);
   }
 
   & p:first-child {
@@ -52,4 +64,35 @@
   @media ($bp-1) {
     display: none;
   }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: none;
+  opacity: 0.7;
+
+  z-index: 1;
+  & img {
+    transform: scale(50%);
+    color: $clr-blue-text1;
+  }
+
+  @media ($bp-1) {
+    transform: translateX(55px);
+    display: block;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 15%;
+
+    background-color: #fff;
+    border-radius: 50%;
+  }
+}
+.swiper-button-next {
+  left: 0;
+  rotate: 180deg;
+}
+.swiper-button-prev {
+  right: 0;
 }
