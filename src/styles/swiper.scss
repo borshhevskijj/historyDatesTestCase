@@ -1,5 +1,7 @@
 .swiper {
   position: relative;
+
+  container-type: inline-size;
 }
 
 .swiper-slide {
@@ -10,11 +12,10 @@
 
   @media ($bp-1) {
     opacity: 1;
-    padding-right: 100px;
   }
 
   @media ($bp-1) {
-    width: clamp(166px, calc(33.33cqi - 100px), 600px);
+    width: clamp(166px, 33.33cqi, 33.33cqi) !important;
   }
 
   & p:first-child {
@@ -83,7 +84,7 @@
     position: absolute;
     width: 40px;
     height: 40px;
-    top: 15%;
+    top: 25%;
 
     background-color: #fff;
     border-radius: 50%;

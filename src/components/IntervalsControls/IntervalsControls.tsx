@@ -5,7 +5,7 @@ import { DataContext } from "../../context";
 import { INITIAL_INTERVALS } from "../../fixtures/fixtures";
 import Arrow from "../../assets/arrow.svg";
 
-export default function IntervalsControlls() {
+export default function IntervalsControls() {
   const { current, setCurrent } = useContext(DataContext);
   const totalCount = INITIAL_INTERVALS.length ?? 0;
 
@@ -24,17 +24,17 @@ export default function IntervalsControlls() {
   );
 
   return (
-    <div className={styles.controlls}>
-      <div className={styles.controlls__title}>
+    <div className={styles.controls}>
+      <div className={styles.controls__title}>
         {current < 10 && 0}
         {current + 1}/{totalCount < 10 && 0}
         {totalCount}
       </div>
       <button
         className={classNames(
-          styles.controlls__leftButton,
-          styles.controlls__button,
-          current <= 0 && styles.controlls__button_inactive
+          styles.controls__leftButton,
+          styles.controls__button,
+          current <= 0 && styles.controls__button_inactive
         )}
         onClick={() => prevInterval(current)}
       >
@@ -42,8 +42,8 @@ export default function IntervalsControlls() {
       </button>
       <button
         className={classNames(
-          styles.controlls__button,
-          current >= totalCount - 1 && styles.controlls__button_inactive
+          styles.controls__button,
+          current >= totalCount - 1 && styles.controls__button_inactive
         )}
         onClick={() => nextInterval(current)}
       >
