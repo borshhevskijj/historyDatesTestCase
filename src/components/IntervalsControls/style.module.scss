@@ -39,7 +39,10 @@
     }
 
     &_inactive {
-      color: $clr-gray2-50;
+      border-color: $clr-gray2-50;
+      & img {
+        stroke: $clr-gray2-50;
+      }
     }
 
     @media ($bp-1) {

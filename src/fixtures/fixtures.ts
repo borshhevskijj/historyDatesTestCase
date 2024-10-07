@@ -1,5 +1,7 @@
 import { InitialData } from "../zod";
 
+export const DOT_SIZE = 56;
+
 export const INITIAL_INTERVALS: InitialData = InitialData.parse(
   window.INITIAL_INTERVALS ?? [
     {
