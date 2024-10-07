@@ -36,6 +36,7 @@ export default function IntervalsControls() {
           styles.controls__button,
           current <= 0 && styles.controls__button_inactive
         )}
+        disabled={current <= 0}
         onClick={() => prevInterval(current)}
       >
         <img src={Arrow} />
@@ -46,6 +47,7 @@ export default function IntervalsControls() {
           current >= totalCount - 1 && styles.controls__button_inactive
         )}
         onClick={() => nextInterval(current)}
+        disabled={current >= totalCount - 1}
       >
         <img src={Arrow} />
       </button>
