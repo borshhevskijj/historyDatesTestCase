@@ -42,6 +42,7 @@
         overflow: hidden;
       }
 
+      &:hover div,
       &_active div {
         display: flex;
         justify-content: center;
