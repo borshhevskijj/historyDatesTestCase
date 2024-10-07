@@ -6,6 +6,7 @@
 
   position: relative;
   background-color: transparent;
+  z-index: 40;
 
   @media ($bp-1) {
     gap: 20px;

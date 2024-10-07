@@ -1,5 +1,6 @@
 .root {
   display: none;
+  z-index: 1;
 
   @media ($bp-1) {
     display: grid;
@@ -26,6 +27,5 @@
     & div:nth-child(3) {
       border-right: 0;
     }
-    z-index: 1;
   }
 }
