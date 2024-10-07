@@ -1,6 +1,5 @@
 import BottomContainer from "../BottomContainer/BottomContainer";
 import CoordNet from "../CoordNet/CoordNet";
-import RoundControls from "../RoundControls/RoundControls";
 import TopContainer from "../TopContainer/TopContainer";
 import styles from "./style.module.scss";
 
@@ -9,11 +8,7 @@ export default function Container() {
     <div className={styles.root}>
       <CoordNet />
       <TopContainer />
-      <div className={styles.line}></div>
-      <div className={styles.bottom}>
-        <BottomContainer />
-      </div>
-      <RoundControls />
+      <BottomContainer />
     </div>
   );
 }

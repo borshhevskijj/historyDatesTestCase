@@ -1,4 +1,37 @@
+.root {
+  container-type: size;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  @media ($bp-1) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.centerLine {
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  left: 20px;
+  right: 20px;
+  border-bottom: 1px solid $clr-gray1;
+
+  @media ($bp-1) {
+    left: -20px;
+    right: -20px;
+    border-bottom: 1px solid $clr-gray1;
+    transform: scaleX(1.5);
+  }
+}
+
 .title {
+  place-self: start;
+
   font-family: PT Sans;
   font-size: 20px;
   font-weight: 700;
@@ -55,6 +88,12 @@
   }
 
   @media ($bp-1) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+
     align-items: center;
     justify-content: center;
     gap: 100px;
