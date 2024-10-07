@@ -40,19 +40,23 @@
         height: 6px;
 
         overflow: hidden;
-      }
 
-      &:hover div,
-      &_active div {
         display: flex;
         justify-content: center;
         align-items: center;
 
-        background-color: $clr-main-bg;
-
         font-family: PT Sans;
         font-size: 20px;
         font-weight: 400;
+
+        transition-property: height, width, background-color;
+        transition-duration: 300ms;
+        transition-timing-function: ease-out;
+      }
+
+      &:hover div,
+      &_active div {
+        background-color: $clr-main-bg;
 
         width: 100%;
         height: 100%;
