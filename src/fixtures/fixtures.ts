@@ -1,8 +1,9 @@
 import { InitialData } from "../zod";
 
-export const INITIAL_INTERVALS = InitialData.parse(
+export const INITIAL_INTERVALS: InitialData = InitialData.parse(
   window.INITIAL_INTERVALS ?? [
     {
+      title: "Наука",
       start: 2015,
       end: 2020,
       data: [

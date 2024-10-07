@@ -1,10 +1,14 @@
-import { DataSchema, IntervalSchema } from "./zod";
-
-export type TData = z.infer<typeof DataSchema>;
-export type TInterval = z.infer<typeof IntervalSchema>;
+import { InitialData } from "./zod";
 
 declare global {
   interface Window {
-    INITIAL_INTERVALS: TInterval[];
+    INITIAL_INTERVALS: InitialData;
   }
+}
+
+export interface ChartDimentions {
+  w: number;
+  h: number;
+  cX: number;
+  cY: number;
 }

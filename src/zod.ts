@@ -2,14 +2,20 @@ import { z } from "zod";
 
 // creating a schema for strings
 export const DataSchema = z.object({
-  year: z.number().lte(9999),
+  year: z.number(),
   text: z.string(),
 });
 
 export const IntervalSchema = z.object({
-  start: z.number().lte(9999),
-  end: z.number().lte(9999),
+  title: z.string(),
+  start: z.number(),
+  end: z.number(),
   data: z.array(DataSchema),
 });
 
 export const InitialData = z.array(IntervalSchema);
+
+export type TData = z.infer<typeof DataSchema>;
+export type TInterval = z.infer<typeof IntervalSchema>;
+export type TPureInterval = Omit<TInterval, "data">;
+export type InitialData = z.infer<typeof InitialData>;

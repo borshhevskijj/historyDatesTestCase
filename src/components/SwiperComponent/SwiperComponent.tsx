@@ -9,13 +9,15 @@ import { Pagination, Navigation } from "swiper/modules";
 import { useContext, useMemo, useState } from "react";
 import { DataContext } from "../../context";
 import { INITIAL_INTERVALS } from "../../fixtures/fixtures";
-import { TInterval } from "../../types";
 
 export default function SwiperComponent() {
   const { current } = useContext(DataContext);
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [controlledSwiper, setControlledSwiper] = useState<any>();
   const { data } = useMemo(
     () => INITIAL_INTERVALS[current],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [INITIAL_INTERVALS, current]
   );
 
@@ -30,7 +32,7 @@ export default function SwiperComponent() {
         loop={true}
         onSwiper={setControlledSwiper}
       >
-        {data?.map((d: TInterval, i: number) => (
+        {data?.map((d, i) => (
           <SwiperSlide key={i}>
             <p>{d.year}</p>
             <p>{d.text}</p>
