@@ -1,6 +1,11 @@
+import { useContext } from "react";
+import { DataContext } from "../../context";
+import { INITIAL_INTERVALS } from "../../fixtures/fixtures";
 import styles from "./style.module.scss";
 
 export default function TopContainer() {
+  const { current } = useContext(DataContext);
+
   return (
     <>
       <div className={styles.title}>
@@ -11,8 +16,12 @@ export default function TopContainer() {
         </div>
       </div>
       <div className={styles.dates}>
-        <span className={styles.leftDate}>2015</span>
-        <span className={styles.rightDate}>2022</span>
+        <span className={styles.leftDate}>
+          {INITIAL_INTERVALS[current].start}
+        </span>
+        <span className={styles.rightDate}>
+          {INITIAL_INTERVALS[current].end}
+        </span>
       </div>
     </>
   );
