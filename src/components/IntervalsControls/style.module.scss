@@ -7,7 +7,7 @@
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
+  grid-template-rows: 1fr 1fr;
   align-items: flex-start;
 
   &__title {
@@ -20,7 +20,9 @@
     color: $clr-gray-text1;
 
     grid-area: span 1 / span 2;
-    padding-bottom: 15px;
+    @media ($bp-1) {
+      align-self: center;
+    }
   }
   &__leftButton {
     transform: rotate(180deg);
@@ -40,8 +42,15 @@
     transition-duration: 250ms;
     transition-timing-function: ease-out;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     & img {
-      transform: scale(50%);
+      transform: scale(70%);
+      @media ($bp-1) {
+        transform: scale(50%);
+      }
     }
 
     &_inactive {
