@@ -20,6 +20,7 @@ export default function IntervalsControls() {
     (prev: number) => {
       if (prev > 0) setCurrent(prev - 1);
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [totalCount, setCurrent]
   );
 

@@ -5,7 +5,6 @@ import "swiper/scss/pagination";
 import arrow from "../../assets/arrow.svg";
 
 import { Pagination, Navigation } from "swiper/modules";
-// import required modules
 import { useContext, useMemo, useState } from "react";
 import { DataContext } from "../../context";
 import { INITIAL_INTERVALS } from "../../fixtures/fixtures";

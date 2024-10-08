@@ -18,4 +18,5 @@ export type Coord = {
   y: number;
   d: number;
 };
+
 export type Coords = Coord[];

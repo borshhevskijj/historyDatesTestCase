@@ -1,6 +1,5 @@
 import { z } from "zod";
 
-// creating a schema for strings
 export const DataSchema = z.object({
   year: z.number(),
   text: z.string(),
