@@ -1,11 +1,11 @@
 .root {
+  position: relative;
   container-type: size;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 
   @media ($bp-1) {
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -16,15 +16,17 @@
 
 .centerLine {
   position: absolute;
-  top: 50%;
-  bottom: 50%;
-  left: 20px;
-  right: 20px;
+  top: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
   border-bottom: 1px solid $clr-gray1;
 
   @media ($bp-1) {
     left: -20px;
     right: -20px;
+    top: 50%;
+    bottom: 50%;
     border-bottom: 1px solid $clr-gray1;
     transform: scaleX(1.5);
   }
