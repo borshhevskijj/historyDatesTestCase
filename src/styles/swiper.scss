@@ -1,6 +1,5 @@
 .swiper {
   position: relative;
-
   container-type: inline-size;
 }
 
@@ -8,14 +7,12 @@
   opacity: 0.4;
   width: clamp(166px, 60cqi, 300px);
 
-  padding-right: 20px;
-
   @media ($bp-1) {
     opacity: 1;
   }
 
   @media ($bp-1) {
-    width: clamp(166px, 33.33cqi, 33.33cqi) !important;
+    width: auto;
   }
 
   & p:first-child {

@@ -28,7 +28,16 @@ export default function SwiperComponent() {
         navigation={true}
         modules={[Pagination, Navigation]}
         className={styles.root}
-        slidesPerView={"auto"}
+        breakpoints={{
+          320: {
+            slidesPerView: "auto",
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 100,
+          },
+        }}
         loop={true}
         onSwiper={setControlledSwiper}
       >
