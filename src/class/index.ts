@@ -27,10 +27,7 @@ export class CircleWithDots {
 
     if (newCurrent === currentIndex) return;
 
-    console.log("moveTo indexes:", newCurrent, currentIndex);
-
     let rotate = 0;
-
     let left = 0;
     let cnt = newCurrent;
     while (cnt !== currentIndex) {
@@ -43,7 +40,6 @@ export class CircleWithDots {
       cnt = CircleWithDots.nextDotIndex(cnt, this.dots.length);
       right++;
     }
-    console.log("first", left, right);
     rotate = left < right ? -left : right;
 
     const rotateAngle = rotate * gap;
