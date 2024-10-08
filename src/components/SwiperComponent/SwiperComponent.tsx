@@ -41,7 +41,7 @@ export default function SwiperComponent() {
       </Swiper>
       <div
         className="swiper-button-next"
-        onClick={() => controlledSwiper.slideNext(250)}
+        onClick={() => controlledSwiper.slidePrev(250)}
       >
         <img src={arrow} alt="" />
       </div>
