@@ -15,7 +15,7 @@ export default function TopContainer() {
         </div>
       </div>
       <BigDates />
-      <IntervalsControls />
+      <IntervalsControls mobileHide={true} />
       <RoundControls />
     </div>
   );

@@ -1,6 +1,6 @@
 .controls {
   position: absolute;
-  left: 20px;
+  left: 0;
   bottom: 0;
   width: 60px;
   z-index: 50;
@@ -65,5 +65,18 @@
     position: relative;
     place-self: start;
     gap: 15px;
+  }
+}
+
+.mobile__hide {
+  display: none;
+  @media ($bp-1) {
+    display: grid;
+  }
+}
+
+.tablet__hide {
+  @media ($bp-1) {
+    display: none;
   }
 }

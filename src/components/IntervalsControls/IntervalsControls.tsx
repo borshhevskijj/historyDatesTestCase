@@ -5,7 +5,13 @@ import { DataContext } from "../../context";
 import { INITIAL_INTERVALS } from "../../fixtures/fixtures";
 import Arrow from "../../assets/arrow.svg";
 
-export default function IntervalsControls() {
+export default function IntervalsControls({
+  mobileHide = false,
+  tabletHide = false,
+}: {
+  mobileHide?: boolean;
+  tabletHide?: boolean;
+}) {
   const { current, setCurrent } = useContext(DataContext);
   const totalCount = INITIAL_INTERVALS.length ?? 0;
 
@@ -25,7 +31,13 @@ export default function IntervalsControls() {
   );
 
   return (
-    <div className={styles.controls}>
+    <div
+      className={classNames(
+        styles.controls,
+        mobileHide && styles.mobile__hide,
+        tabletHide && styles.tablet__hide
+      )}
+    >
       <div className={styles.controls__title}>
         {current < 10 && 0}
         {current + 1}/{totalCount < 10 && 0}
