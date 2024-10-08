@@ -47,18 +47,22 @@ export default function SwiperComponent() {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div
-        className="swiper-button-next"
-        onClick={() => controlledSwiper.slidePrev(250)}
-      >
-        <img src={arrow} alt="" />
-      </div>
-      <div
-        className="swiper-button-prev"
-        onClick={() => controlledSwiper.slideNext(250)}
-      >
-        <img src={arrow} alt="" />
-      </div>
+      {INITIAL_INTERVALS[current].data.length > 3 && (
+        <>
+          <div
+            className="swiper-button-next"
+            onClick={() => controlledSwiper.slidePrev(250)}
+          >
+            <img src={arrow} alt="" />
+          </div>
+          <div
+            className="swiper-button-prev"
+            onClick={() => controlledSwiper.slideNext(250)}
+          >
+            <img src={arrow} alt="" />
+          </div>
+        </>
+      )}
     </>
   );
 }
