@@ -2,6 +2,7 @@ import { Coords } from "../types";
 
 const FULL_CIRCLE_DEG = 360;
 const k = FULL_CIRCLE_DEG / 2 / Math.PI;
+
 export class CircleWithDots {
   private radius = 0;
   private gap = 0;
@@ -13,8 +14,8 @@ export class CircleWithDots {
     public currentIndex = 0,
     private dotSize = 20,
     private baseAngle = 120,
-    private animationSteps = 20,
-    private animationStepDelay = 50
+    private animationSteps = 60,
+    private animationStepDelay = 10
   ) {
     this.radius = circle?.getBoundingClientRect()?.width / 2;
     this.dots = Array.from(circle.children) as HTMLDivElement[];

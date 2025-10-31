@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import styles from "./style.module.scss";
+import styles from "./SwiperComponent.module.scss";
 import "swiper/scss";
 import "swiper/scss/pagination";
 import arrow from "../../assets/arrow.svg";

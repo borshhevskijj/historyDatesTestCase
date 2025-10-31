@@ -1,7 +1,7 @@
 import BottomContainer from "../BottomContainer/BottomContainer";
 import CoordNet from "../CoordNet/CoordNet";
 import TopContainer from "../TopContainer/TopContainer";
-import styles from "./style.module.scss";
+import styles from "./Container.module.scss";
 
 export default function Container() {
   return (

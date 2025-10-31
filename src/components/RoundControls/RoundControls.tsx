@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { CircleWithDots } from "../../class";
 import { DataContext } from "../../context";
 import { DOT_SIZE, INITIAL_INTERVALS } from "../../fixtures/fixtures";
-import styles from "./style.module.scss";
+import styles from "./RoundControls.module.scss";
 
 import { useContext, useEffect, useRef, useState } from "react";
 
@@ -38,7 +38,9 @@ export default function RoundControls() {
                 setCurrent(index);
               }}
             >
-              <div className={styles.number}>{index + 1}</div>
+              <div className={styles.numberContainer}>
+                <div className={styles.number}>{index + 1}</div>
+              </div>
               <div className={styles.label}>
                 {INITIAL_INTERVALS[current].title}
               </div>

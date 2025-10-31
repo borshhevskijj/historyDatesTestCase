@@ -1,6 +1,6 @@
 import IntervalsControls from "../IntervalsControls/IntervalsControls";
 import SwiperComponent from "../SwiperComponent/SwiperComponent";
-import styles from "./style.module.scss";
+import styles from "./BottomContainer.module.scss";
 
 export default function BottomContainer() {
   return (

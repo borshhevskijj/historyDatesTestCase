@@ -1,5 +1,5 @@
 import { useCallback, useContext } from "react";
-import styles from "./style.module.scss";
+import styles from "./IntervalsControls.module.scss";
 import classNames from "classnames";
 import { DataContext } from "../../context";
 import { INITIAL_INTERVALS } from "../../fixtures/fixtures";

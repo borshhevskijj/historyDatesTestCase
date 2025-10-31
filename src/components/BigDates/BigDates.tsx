@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../../context";
 import { INITIAL_INTERVALS } from "../../fixtures/fixtures";
-import styles from "./style.module.scss";
+import styles from "./BigDates.module.scss";
 
 const animateNumber = (next: number, setValue: (i: number) => void) => {
   const steps = 5;

@@ -34,7 +34,7 @@
       justify-content: center;
       align-items: center;
 
-      & .number {
+      & .numberContainer {
         border: 1px solid $clr-gray1;
         background-color: $clr-gray2;
         border-radius: 50%;
@@ -56,8 +56,12 @@
         transition-timing-function: ease-in-out;
       }
 
-      &:hover .number,
-      &_active .number {
+      .numberContainer .number {
+        opacity: 0;
+      }
+
+      &:hover .numberContainer,
+      &_active .numberContainer {
         background-color: $clr-main-bg;
 
         width: 100%;
@@ -66,10 +70,15 @@
         transition-property: height, width, background-color;
         transition-duration: 300ms;
         transition-timing-function: ease-in-out;
+
+        .number {
+          opacity: 1;
+        }
       }
 
       & .label {
         opacity: 0;
+        visibility: hidden;
         position: absolute;
         left: 80px;
         font-family: PT Sans;
@@ -88,6 +97,7 @@
 
       &_active .label {
         opacity: 1;
+        visibility: visible;
         transition-property: opacity;
         transition-duration: 300ms;
         transition-delay: 700ms;
