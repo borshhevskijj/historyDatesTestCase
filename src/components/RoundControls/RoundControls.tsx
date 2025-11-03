@@ -9,8 +9,9 @@ import { DOT_SIZE, historyData } from "../../constants/data";
 
 export default function RoundControls() {
   const [circle, setCircle] = useState<CircleWithDots>();
-  const { current, setCurrent } = useContext(DataContext);
+  const { current, setCurrent, setIsAnimating } = useContext(DataContext);
   const ref = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (ref?.current) {
@@ -19,6 +20,16 @@ export default function RoundControls() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [current]);
+
+  useEffect(() => {
+    if (!ref.current || !circle) return;
+    setIsAnimating(true);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    timeoutRef.current = window.setTimeout(() => {
+      setIsAnimating(false);
+      timeoutRef.current = null;
+    }, 550);
+  }, [current, setIsAnimating, circle]);
 
   return (
     <div className={styles.root}>

@@ -10,10 +10,11 @@ import { DataContext } from "../../context";
 import { historyData } from "../../constants/data";
 
 export default function SwiperComponent() {
-  const { current } = useContext(DataContext);
+  const { current, isAnimating } = useContext(DataContext);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [controlledSwiper, setControlledSwiper] = useState<any>();
+
   const { data } = useMemo(
     () => historyData[current],
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -39,6 +40,7 @@ export default function SwiperComponent() {
         }}
         loop={true}
         onSwiper={setControlledSwiper}
+        style={{ opacity: isAnimating ? 0 : 1, transition: "opacity .3s ease" }}
       >
         {data?.map((d, i) => (
           <SwiperSlide key={i}>

@@ -7,9 +7,12 @@ type Props = {
 
 export default function DataContextProvider({ children }: Props) {
   const [current, setCurrent] = useState(0);
+  const [isAnimating, setIsAnimating] = React.useState(false);
 
   return (
-    <DataContext.Provider value={{ current, setCurrent }}>
+    <DataContext.Provider
+      value={{ current, setCurrent, isAnimating, setIsAnimating }}
+    >
       {children}
     </DataContext.Provider>
   );
