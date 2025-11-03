@@ -238,3 +238,6 @@ export const historyData: TimelineEvent[] = [
 ];
 
 export const DOT_SIZE = 56;
+
+export const FULL_CIRCLE_DEG = 360;
+export const k = FULL_CIRCLE_DEG / 2 / Math.PI;

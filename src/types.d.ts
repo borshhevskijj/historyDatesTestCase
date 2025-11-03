@@ -8,8 +8,8 @@ export interface ChartDimentions {
 export type Coord = {
   x: number;
   y: number;
-  d: number;
-  i: number;
+  d?: number;
+  i?: number;
 };
 
 export type Coords = Coord[];

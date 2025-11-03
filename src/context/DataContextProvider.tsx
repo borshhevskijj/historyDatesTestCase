@@ -7,6 +7,7 @@ type Props = {
 
 export default function DataContextProvider({ children }: Props) {
   const [current, setCurrent] = useState(0);
+
   return (
     <DataContext.Provider value={{ current, setCurrent }}>
       {children}
