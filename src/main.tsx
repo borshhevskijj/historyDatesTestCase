@@ -2,13 +2,15 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "normalize.css";
+import DataContextProvider from "./context/DataContextProvider.tsx";
 
-const roots = document.querySelectorAll(".historyDates");
+// const roots = document.querySelectorAll(".historyDates");
+const root = document.getElementById("root");
 
-roots!.forEach((root) => {
-  createRoot(root!).render(
-    <StrictMode>
+createRoot(root!).render(
+  <StrictMode>
+    <DataContextProvider>
       <App />
-    </StrictMode>
-  );
-});
+    </DataContextProvider>
+  </StrictMode>
+);

@@ -13,3 +13,15 @@ export type Coord = {
 };
 
 export type Coords = Coord[];
+
+type TimelineData = {
+  year: number;
+  text: string;
+};
+
+export type TimelineEvent = {
+  start: number;
+  end: number;
+  title: string;
+  data: TimelineData[];
+};
