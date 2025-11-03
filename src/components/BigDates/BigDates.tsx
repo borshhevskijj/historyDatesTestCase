@@ -1,20 +1,21 @@
 import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../../context";
-import { INITIAL_INTERVALS } from "../../fixtures/fixtures";
+
 import styles from "./BigDates.module.scss";
+import { historyData } from "../../constants/data";
 
 export default function BigDates() {
   const { current } = useContext(DataContext);
-  const [left, setLeft] = useState(INITIAL_INTERVALS[current].start ?? 0);
-  const [right, setRight] = useState(INITIAL_INTERVALS[current].end ?? 0);
+  const [left, setLeft] = useState(historyData[current].start ?? 0);
+  const [right, setRight] = useState(historyData[current].end ?? 0);
 
   useEffect(() => {
     let rafId = 0;
     let start: number | null = null;
     const duration = 700; // ms
 
-    const targetLeft = INITIAL_INTERVALS[current].start ?? 0;
-    const targetRight = INITIAL_INTERVALS[current].end ?? 0;
+    const targetLeft = historyData[current].start ?? 0;
+    const targetRight = historyData[current].end ?? 0;
 
     const fromLeft = left;
     const fromRight = right;

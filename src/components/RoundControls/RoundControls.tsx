@@ -1,10 +1,11 @@
 import classNames from "classnames";
 import { CircleWithDots } from "../../class";
 import { DataContext } from "../../context";
-import { DOT_SIZE, INITIAL_INTERVALS } from "../../fixtures/fixtures";
+
 import styles from "./RoundControls.module.scss";
 
 import { useContext, useEffect, useRef, useState } from "react";
+import { DOT_SIZE, historyData } from "../../constants/data";
 
 export default function RoundControls() {
   const [circle, setCircle] = useState<CircleWithDots>();
@@ -22,10 +23,10 @@ export default function RoundControls() {
   return (
     <div className={styles.root}>
       <div ref={ref} className={styles.circle}>
-        {INITIAL_INTERVALS.map((_, i) => {
+        {historyData.map((_, i) => {
           let index = i + current;
-          if (index >= INITIAL_INTERVALS.length) {
-            index -= INITIAL_INTERVALS.length;
+          if (index >= historyData.length) {
+            index -= historyData.length;
           }
           return (
             <div
@@ -41,9 +42,7 @@ export default function RoundControls() {
               <div className={styles.numberContainer}>
                 <div className={styles.number}>{index + 1}</div>
               </div>
-              <div className={styles.label}>
-                {INITIAL_INTERVALS[current].title}
-              </div>
+              <div className={styles.label}>{historyData[current].title}</div>
             </div>
           );
         })}

@@ -2,8 +2,8 @@ import { useCallback, useContext } from "react";
 import styles from "./IntervalsControls.module.scss";
 import classNames from "classnames";
 import { DataContext } from "../../context";
-import { INITIAL_INTERVALS } from "../../fixtures/fixtures";
 import Arrow from "../../assets/arrow.svg";
+import { historyData } from "../../constants/data";
 
 export default function IntervalsControls({
   mobileHide = false,
@@ -13,7 +13,7 @@ export default function IntervalsControls({
   tabletHide?: boolean;
 }) {
   const { current, setCurrent } = useContext(DataContext);
-  const totalCount = INITIAL_INTERVALS.length ?? 0;
+  const totalCount = historyData.length ?? 0;
 
   const nextInterval = useCallback(
     (prev: number) => {

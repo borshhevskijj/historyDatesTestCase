@@ -7,7 +7,7 @@ import arrow from "../../assets/arrow.svg";
 import { Pagination, Navigation } from "swiper/modules";
 import { useContext, useMemo, useState } from "react";
 import { DataContext } from "../../context";
-import { INITIAL_INTERVALS } from "../../fixtures/fixtures";
+import { historyData } from "../../constants/data";
 
 export default function SwiperComponent() {
   const { current } = useContext(DataContext);
@@ -15,9 +15,9 @@ export default function SwiperComponent() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [controlledSwiper, setControlledSwiper] = useState<any>();
   const { data } = useMemo(
-    () => INITIAL_INTERVALS[current],
+    () => historyData[current],
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [INITIAL_INTERVALS, current]
+    [historyData, current]
   );
 
   return (
@@ -47,7 +47,7 @@ export default function SwiperComponent() {
           </SwiperSlide>
         ))}
       </Swiper>
-      {INITIAL_INTERVALS[current].data.length > 3 && (
+      {historyData[current].data.length > 3 && (
         <>
           <div
             className="swiper-button-next"
