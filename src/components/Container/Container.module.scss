@@ -4,7 +4,7 @@
   position: relative;
   container-type: inline-size;
 
-  margin: 0 auto;
+  margin: 0 160px 0 320px;
 
   display: grid;
   grid-template-rows: 1fr 1fr;
@@ -26,5 +26,8 @@
     border-top-width: 0px;
     border-bottom-width: 0px;
     border-color: $clr-gray1;
+  }
+  @media ($bp-2) {
+    margin-inline: 32px;
   }
 }

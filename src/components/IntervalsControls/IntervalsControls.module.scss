@@ -23,7 +23,7 @@
 
     grid-area: span 1 / span 2;
     @media ($bp-1) {
-      align-self: center;
+      align-self: flex-end;
     }
   }
   &__leftButton {
@@ -77,7 +77,7 @@
   @media ($bp-1) {
     position: relative;
     place-self: start;
-    gap: 15px;
+    gap: 20px;
   }
 }
 

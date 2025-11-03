@@ -27,6 +27,7 @@
 
     @media ($bp-1) {
       font-size: 25px;
+      margin-top: 56px;
     }
   }
   & p:last-child {
@@ -62,6 +63,17 @@
   @media ($bp-1) {
     display: none;
   }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  opacity: 1;
+  transition: 0.3s ease-in-out;
+}
+.swiper-button-disabled {
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
 }
 
 .swiper-button-next,

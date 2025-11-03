@@ -8,12 +8,12 @@ import { Pagination, Navigation } from "swiper/modules";
 import { useContext, useMemo, useState } from "react";
 import { DataContext } from "../../context";
 import { historyData } from "../../constants/data";
+import { Swiper as SwiperType } from "swiper/types";
 
 export default function SwiperComponent() {
   const { current, isAnimating } = useContext(DataContext);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [controlledSwiper, setControlledSwiper] = useState<any>();
+  const [controlledSwiper, setControlledSwiper] = useState<SwiperType>();
 
   const { data } = useMemo(
     () => historyData[current],
@@ -35,12 +35,15 @@ export default function SwiperComponent() {
           },
           768: {
             slidesPerView: 3,
-            spaceBetween: 100,
+            spaceBetween: 80,
           },
         }}
-        loop={true}
+        cssMode
         onSwiper={setControlledSwiper}
-        style={{ opacity: isAnimating ? 0 : 1, transition: "opacity .3s ease" }}
+        style={{
+          opacity: isAnimating ? 0 : 1,
+          transition: "opacity .3s ease-in-out",
+        }}
       >
         {data?.map((d, i) => (
           <SwiperSlide key={i}>
@@ -53,13 +56,13 @@ export default function SwiperComponent() {
         <>
           <div
             className="swiper-button-next"
-            onClick={() => controlledSwiper.slidePrev(250)}
+            onClick={() => controlledSwiper?.slidePrev(250)}
           >
             <img src={arrow} alt="" />
           </div>
           <div
             className="swiper-button-prev"
-            onClick={() => controlledSwiper.slideNext(250)}
+            onClick={() => controlledSwiper?.slideNext(250)}
           >
             <img src={arrow} alt="" />
           </div>
