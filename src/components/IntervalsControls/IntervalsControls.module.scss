@@ -1,6 +1,6 @@
 .controls {
   position: absolute;
-  left: 0;
+  left: 20px;
   bottom: 0;
   width: 60px;
   z-index: 50;
@@ -23,6 +23,7 @@
 
     grid-area: span 1 / span 2;
     @media ($bp-1) {
+      left: 0;
       align-self: flex-end;
     }
   }

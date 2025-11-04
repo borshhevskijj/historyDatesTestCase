@@ -1,3 +1,4 @@
+import Bullets from "../Bullets/Bullets";
 import IntervalsControls from "../IntervalsControls/IntervalsControls";
 import SwiperComponent from "../SwiperComponent/SwiperComponent";
 import styles from "./BottomContainer.module.scss";
@@ -7,6 +8,7 @@ export default function BottomContainer() {
     <div className={styles.root}>
       <SwiperComponent />
       <IntervalsControls tabletHide={true} />
+      <Bullets />
     </div>
   );
 }

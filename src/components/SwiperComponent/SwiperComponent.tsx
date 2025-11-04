@@ -11,6 +11,7 @@ import "swiper/scss/pagination";
 
 import classNames from "classnames";
 import ArrowIcon from "../ArrowIcon/ArrowIcon";
+import { getHideAnimationStyles } from "../../helpers";
 
 export default function SwiperComponent() {
   const { current, isAnimating } = useContext(DataContext);
@@ -25,15 +26,12 @@ export default function SwiperComponent() {
     setCanPrev(!sw.isBeginning);
   }, []);
 
-  const hideAnimation = {
-    opacity: isAnimating ? 0 : 1,
-    transition: "opacity .3s ease-in-out",
-  };
+  const hideAnimationStyles = getHideAnimationStyles(isAnimating);
 
   return (
     <>
       <Swiper
-        pagination
+        // pagination
         navigation
         modules={[Pagination, Navigation]}
         className={styles.root}
@@ -51,7 +49,7 @@ export default function SwiperComponent() {
           sw.on("slidesLengthChange", () => updateNavState(sw));
           sw.on("update", () => updateNavState(sw));
         }}
-        style={hideAnimation}
+        style={hideAnimationStyles}
       >
         {data?.map((d, i) => (
           <SwiperSlide key={i}>
@@ -62,7 +60,7 @@ export default function SwiperComponent() {
       </Swiper>
 
       {historyData[current].data.length > 3 && (
-        <div style={hideAnimation}>
+        <div style={hideAnimationStyles}>
           <div
             className={classNames(
               "swiper-button-prev",

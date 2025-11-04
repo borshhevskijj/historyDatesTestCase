@@ -6,6 +6,7 @@
 .swiper-slide {
   opacity: 0.4;
   width: clamp(166px, 60cqi, 300px);
+  padding-left: 20px;
 
   @media ($bp-1) {
     opacity: 1;
@@ -21,7 +22,11 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 19.2px;
+
     text-align: left;
+
+    margin-top: 20px;
+    margin-bottom: 20px;
 
     color: $clr-blue-text1;
 

@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 10px;
+
+  height: 26px;
+
+  position: relative;
+  z-index: 22;
+
+  @media ($bp-1) {
+    display: none;
+  }
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  margin: 0;
+  background: $clr-bullet;
+  transition: background 0.15s ease-in-out;
+  position: relative;
+}
+.dot::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  transform: translate(-50%, -50%);
+  background: transparent;
+}
+
+.dotActive {
+  background: $clr-bullet-active;
+  background-clip: content-box;
+}

@@ -1,9 +1,12 @@
 .root {
   position: relative;
   container-type: size;
+
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  padding-inline: 20px;
+  padding-top: 59px;
 
   @media ($bp-1) {
     display: flex;
@@ -18,8 +21,8 @@
   position: absolute;
   top: 100%;
   bottom: 0;
-  left: 0;
-  right: 0;
+  left: 20px;
+  right: 20px;
   border-bottom: 1px solid $clr-gray1;
 
   @media ($bp-1) {

@@ -2,6 +2,7 @@ import styles from "./style.module.scss";
 import IntervalsControls from "../IntervalsControls/IntervalsControls";
 import RoundControls from "../RoundControls/RoundControls";
 import BigDates from "../BigDates/BigDates";
+import MobileTitle from "../MobileTitle/MobileTitle";
 
 export default function TopContainer() {
   return (
@@ -15,6 +16,7 @@ export default function TopContainer() {
         </div>
       </div>
       <BigDates />
+      <MobileTitle />
       <IntervalsControls mobileHide={true} />
       <RoundControls />
     </div>
