@@ -35,4 +35,8 @@
     letter-spacing: -0.02em;
     text-align: center;
   }
+
+  @media ($bp-1) and ($bp-3) {
+    font-size: 120px;
+  }
 }

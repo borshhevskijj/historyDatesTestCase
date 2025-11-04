@@ -1,6 +1,5 @@
 .root {
   display: none;
-
   @media ($bp-1) {
     position: absolute;
     left: 0;
@@ -17,8 +16,8 @@
     & .circle {
       cursor: pointer;
 
-      width: clamp(37cqw, 400px, 400px);
-      height: clamp(37cqw, 400px, 400px);
+      width: clamp(37cqw, 530px, 530px);
+      height: clamp(37cqw, 530px, 530px);
 
       border: 1px solid $clr-gray1;
       border-radius: 50%;

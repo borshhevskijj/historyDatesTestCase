@@ -23,7 +23,6 @@
 
     grid-area: span 1 / span 2;
     @media ($bp-1) {
-      left: 0;
       align-self: flex-end;
     }
   }
@@ -79,6 +78,7 @@
     position: relative;
     place-self: start;
     gap: 20px;
+    left: 0;
   }
 }
 
