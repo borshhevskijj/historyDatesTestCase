@@ -3,4 +3,8 @@
   font-size: 14px;
   font-weight: 700;
   color: $clr-gray-text1;
+
+  @media ($bp-1) {
+    display: none;
+  }
 }

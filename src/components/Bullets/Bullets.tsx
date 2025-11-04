@@ -6,7 +6,6 @@ import styles from "./Bullets.module.scss";
 const Bullets = () => {
   const { current, setCurrent } = useContext(DataContext);
   const totalCount = historyData.length ?? 0;
-  console.log({ current });
 
   return (
     <div className={styles.container}>

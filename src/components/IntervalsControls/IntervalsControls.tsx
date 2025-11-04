@@ -53,7 +53,7 @@ export default function IntervalsControls({
         disabled={current <= 0}
         onClick={() => prevInterval(current)}
       >
-        <ArrowIcon color="primary" position="prev" />
+        <ArrowIcon isMobile={tabletHide} color="primary" position="prev" />
       </button>
       <button
         className={classNames(
@@ -63,7 +63,7 @@ export default function IntervalsControls({
         onClick={() => nextInterval(current)}
         disabled={current >= totalCount - 1}
       >
-        <ArrowIcon color="primary" position="next" />
+        <ArrowIcon isMobile={tabletHide} color="primary" position="next" />
       </button>
     </div>
   );

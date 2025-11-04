@@ -5,8 +5,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-inline: 20px;
-  padding-top: 59px;
+  padding: 59px 20px 20px;
 
   @media ($bp-1) {
     display: flex;
