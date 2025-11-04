@@ -2,8 +2,9 @@ import { useCallback, useContext } from "react";
 import styles from "./IntervalsControls.module.scss";
 import classNames from "classnames";
 import { DataContext } from "../../context";
-import Arrow from "../../assets/arrow.svg";
+// import Arrow from "../../assets/arrow.svg";
 import { historyData } from "../../constants/data";
+import ArrowIcon from "../ArrowIcon/ArrowIcon";
 
 export default function IntervalsControls({
   mobileHide = false,
@@ -52,7 +53,7 @@ export default function IntervalsControls({
         disabled={current <= 0}
         onClick={() => prevInterval(current)}
       >
-        <img src={Arrow} />
+        <ArrowIcon color="primary" position="prev" />
       </button>
       <button
         className={classNames(
@@ -62,7 +63,7 @@ export default function IntervalsControls({
         onClick={() => nextInterval(current)}
         disabled={current >= totalCount - 1}
       >
-        <img src={Arrow} />
+        <ArrowIcon color="primary" position="next" />
       </button>
     </div>
   );

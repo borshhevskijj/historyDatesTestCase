@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+}
+
+.next {
+  scale: -1;
+}
+
+.prev {
+  scale: -1;
+}
+
+.primary {
+  color: $clr-gray2;
+}
+
+.secondary {
+  color: $clr-blue-text1;
+}

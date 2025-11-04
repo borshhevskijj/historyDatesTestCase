@@ -72,10 +72,18 @@
   cursor: pointer;
 
   z-index: 1;
+  transition: opacity 0.1s ease-in-out;
 
   & img {
     transform: scale(50%);
     color: $clr-blue-text1;
+  }
+
+  &.swiper-button-next-disabled,
+  &.swiper-button-prev-disabled {
+    opacity: 0;
+    user-select: none;
+    cursor: default;
   }
 
   @media ($bp-1) {
