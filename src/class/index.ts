@@ -1,7 +1,6 @@
 import { Coords } from "../types";
 
 const FULL_CIRCLE_DEG = 360;
-const k = FULL_CIRCLE_DEG / 2 / Math.PI;
 
 export class CircleWithDots {
   private radius = 0;
@@ -13,8 +12,8 @@ export class CircleWithDots {
     circle: HTMLDivElement,
     public currentIndex = 0,
     private dotSize = 20,
-    private baseAngle = 120,
-    private animationSteps = 60,
+    private baseAngle = 300,
+    private animationSteps = 100,
     private animationStepDelay = 10
   ) {
     this.radius = circle?.getBoundingClientRect()?.width / 2;
@@ -23,12 +22,18 @@ export class CircleWithDots {
     this.applyRotationToDots();
   }
 
+  private rAF: number | null = null;
+  private startTs = 0;
+  private duration = this.animationSteps * this.animationStepDelay;
+  private startAngle = 0;
+  private endAngle = 0;
+  private currentAngle = 0;
+
   moveTo(newCurrent: number = 0) {
     const { gap, currentIndex } = this;
-
     if (newCurrent === currentIndex) return;
 
-    let rotate = 0;
+    // считаем шаги влево/вправо как раньше
     let left = 0;
     let cnt = newCurrent;
     while (cnt !== currentIndex) {
@@ -41,28 +46,58 @@ export class CircleWithDots {
       cnt = CircleWithDots.nextDotIndex(cnt, this.dots.length);
       right++;
     }
-    rotate = left < right ? -left : right;
+    const rotateSteps = left < right ? -left : right;
 
-    const rotateAngle = rotate * gap;
-    const rotateAngleChunk = rotateAngle / this.animationSteps;
+    // целевой угол
+    const rotateAngle = rotateSteps * gap;
 
-    cnt = 0;
-    const interval = setInterval(() => {
-      this.applyRotationToDots(rotateAngleChunk * cnt++);
-      if (cnt > this.animationSteps) clearInterval(interval);
-    }, this.animationStepDelay);
+    // rAF-анимация общего угла вместо setInterval
+    this.startAngle = this.currentAngle;
+    this.endAngle = this.currentAngle + rotateAngle;
+    this.startTs = 0;
+
+    const easeOutQuad = (t: number) => t * (2 - t); // можно заменить на cubic-bezier при желании
+
+    const tick = (ts: number) => {
+      if (!this.startTs) this.startTs = ts;
+      const progress = Math.min(1, (ts - this.startTs) / this.duration);
+      const eased = easeOutQuad(progress);
+      this.currentAngle =
+        this.startAngle + (this.endAngle - this.startAngle) * eased;
+
+      this.applyRotationToDots(this.currentAngle);
+
+      if (progress < 1) {
+        this.rAF = requestAnimationFrame(tick);
+      } else {
+        this.rAF = null;
+        this.currentAngle = this.endAngle;
+        this.currentIndex = newCurrent;
+      }
+    };
+
+    if (this.rAF) cancelAnimationFrame(this.rAF);
+    this.rAF = requestAnimationFrame(tick);
   }
 
   applyRotationToDots(angle: number = 0) {
     const { gap, baseAngle } = this;
 
     this.dots.forEach((dot, index) => {
-      const cos = Math.cos((gap * index + baseAngle + angle) / k);
-      const sin = Math.sin((gap * index + baseAngle + angle) / k);
-      dot.style.left =
-        this.radius - (this.radius * cos + this.dotSize / 2) + "px";
-      dot.style.top =
-        this.radius - (this.radius * sin + this.dotSize / 2) + "px";
+      const a =
+        (gap * index + baseAngle + angle) / (FULL_CIRCLE_DEG / (2 * Math.PI));
+      const cos = Math.cos(a);
+      const sin = Math.sin(a);
+
+      const cx = this.radius;
+      const cy = this.radius;
+      const x = cx + this.radius * cos;
+      const y = cy + this.radius * sin;
+
+      dot.style.transform = `translate(${x - this.dotSize / 2}px, ${
+        y - this.dotSize / 2
+      }px)`;
+      dot.style.willChange = "transform";
     });
   }
 
@@ -80,10 +115,3 @@ export class CircleWithDots {
     return this.#coords;
   }
 }
-
-//   return {
-//     d: this.dotSize,
-//     x: this.radius - (this.radius * cos + this.dotSize / 2)+'px',
-//     y: this.radius - (this.radius * sin + this.dotSize / 2),
-//     i: index + 1,
-//   };
