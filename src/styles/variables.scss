@@ -1,14 +1,17 @@
-$clr-main-bg: rgba(243, 243, 243);
-$clr-gray1: #c7cdd9;
+$clr-main-bg: rgb(229, 229, 229);
+
+$clr-gray1: rgb(199, 205, 217);
 
 $clr-gray2: rgba(66, 86, 122);
 $clr-gray2-50: rgba(66, 86, 122, 0.5);
 $clr-gray2-40: rgba(66, 86, 122, 0.4);
 
-$clr-blue-text1: #3877ee;
+$clr-blue-text1: rgb(56, 119, 238);
 
 $clr-gray-text1: $clr-gray2;
 $clr-pink-text1: rgb(222 118 171);
+
+$clr-hover: rgba(245, 245, 245);
 
 $bp-1: "min-width:  768px";
 $bp-2: "max-width: 1700px";

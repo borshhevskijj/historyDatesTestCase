@@ -15,11 +15,7 @@ export default function SwiperComponent() {
 
   const [controlledSwiper, setControlledSwiper] = useState<SwiperType>();
 
-  const { data } = useMemo(
-    () => historyData[current],
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [historyData, current]
-  );
+  const { data } = useMemo(() => historyData[current], [current]);
 
   return (
     <>
@@ -44,6 +40,7 @@ export default function SwiperComponent() {
           opacity: isAnimating ? 0 : 1,
           transition: "opacity .3s ease-in-out",
         }}
+        watchOverflow
       >
         {data?.map((d, i) => (
           <SwiperSlide key={i}>

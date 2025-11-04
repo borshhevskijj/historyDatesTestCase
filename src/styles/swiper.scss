@@ -67,22 +67,12 @@
 
 .swiper-button-next,
 .swiper-button-prev {
-  opacity: 1;
-  transition: 0.3s ease-in-out;
-}
-.swiper-button-disabled {
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.3s ease-in-out;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
   display: none;
   opacity: 1;
   cursor: pointer;
 
   z-index: 1;
+
   & img {
     transform: scale(50%);
     color: $clr-blue-text1;
@@ -97,6 +87,7 @@
     top: 25%;
 
     background-color: #fff;
+    box-shadow: 0 0 15px 0 rgba(56, 119, 238, 0.1);
     border-radius: 50%;
   }
 }

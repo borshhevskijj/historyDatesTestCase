@@ -1,10 +1,14 @@
-import { createContext } from "react";
+import { createContext, Dispatch, SetStateAction } from "react";
 
-export const DataContext = createContext({
+type ctx = {
+  current: number;
+  isAnimating: boolean;
+  setCurrent: Dispatch<SetStateAction<number>>;
+  setIsAnimating: Dispatch<SetStateAction<boolean>>;
+};
+export const DataContext = createContext<ctx>({
   current: 0,
   isAnimating: false,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  setCurrent: (_n: number): void => {},
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  setIsAnimating: (_isAnimating: boolean): void => {},
+  setCurrent: () => {},
+  setIsAnimating: () => {},
 });
