@@ -23,7 +23,6 @@ export default function BigDates() {
     const step = (t: number) => {
       if (start === null) start = t;
       const p = Math.min(1, (t - start) / duration);
-      // easeOutCubic
       const e = 1 - Math.pow(1 - p, 3);
       setLeft(Math.round(fromLeft + (targetLeft - fromLeft) * e));
       setRight(Math.round(fromRight + (targetRight - fromRight) * e));
@@ -32,7 +31,7 @@ export default function BigDates() {
 
     rafId = requestAnimationFrame(step);
     return () => cancelAnimationFrame(rafId);
-  }, [current]);
+  }, [current, left, right]);
 
   return (
     <div className={styles.root}>

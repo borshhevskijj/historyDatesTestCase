@@ -31,7 +31,6 @@ export default function SwiperComponent() {
   return (
     <>
       <Swiper
-        // pagination
         navigation
         modules={[Pagination, Navigation]}
         className={styles.root}

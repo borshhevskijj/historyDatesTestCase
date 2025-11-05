@@ -2,7 +2,6 @@ import { useCallback, useContext } from "react";
 import styles from "./IntervalsControls.module.scss";
 import classNames from "classnames";
 import { DataContext } from "../../context";
-// import Arrow from "../../assets/arrow.svg";
 import { historyData } from "../../constants/data";
 import ArrowIcon from "../ArrowIcon/ArrowIcon";
 
